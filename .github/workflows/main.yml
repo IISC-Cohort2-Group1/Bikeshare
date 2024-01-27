@@ -26,19 +26,16 @@ jobs:
 
     - name: Linting and Formatting
       run: |
-       cd Application_Copy
        make format
        make lint
        make mypy
 
     - name: Model Training
       run: |
-        cd Application_Copy
         make train_pipeline
 
     - name: Model Testing
       run: |
-       cd Application_Copy
        make test
 
     - name: Save trained model artifact
