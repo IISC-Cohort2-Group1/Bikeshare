@@ -1,0 +1,6 @@
+Step 1: Understanding the ML Workflow: (4 points)
+Step 2: Project Setup in VS Code: (1 point)
+Step 3: Implement the Pipeline Building Steps: (2 points)
+Step 4: Create a Virtual Environment: (1 point)
+Step 5: Install Dependencies: (1 point)
+Step 6: Train the Model and Generate Predictions: (1 point)
