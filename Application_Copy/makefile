@@ -1,16 +1,19 @@
-#makefile
-
 install:
-		pip install --upgrade pip &&\
-				pip install -r /home/ec2-user/environment/Bikeshare/Application_Copy/requirements/requirements.txt
+	pip install --upgrade pip && pip install -r requirements/requirements.txt && pip install -r requirements/test_requirements.txt
+
+train_pipeline:
+	python bikeshare_model/train_pipeline.py
 
 format:
-		black *.py
+	black . *.py
 
 lint:
-		pylint --disable=R,C /home/ec2-user/environment/Bikeshare/Application_Copy/bikeshare_model/train_pipeline.py
+	pylint --disable=R,C *.py
+
+mypy:
+	mypy --implicit-optional bikeshare_model/ tests/
 
 test:
-		python -m pytest tests/test_*.py
+	python -m pytest tests/test_*.py
 
-all : install lint test format
+all: install format lint mypy train_pipeline test
