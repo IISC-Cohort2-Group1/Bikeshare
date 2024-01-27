@@ -6,7 +6,7 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 # Package meta-data.
-NAME = 'bikeshare_model'
+NAME = "bikeshare_model"
 DESCRIPTION = "Bike Sharing dataset classification model package "
 EMAIL = "------"
 AUTHOR = "----------"
@@ -24,8 +24,8 @@ long_description = DESCRIPTION
 about = {}
 ROOT_DIR = Path(__file__).resolve().parent
 print(ROOT_DIR)
-REQUIREMENTS_DIR = ROOT_DIR / 'requirements'
-PACKAGE_DIR = ROOT_DIR / 'bikeshare_model'
+REQUIREMENTS_DIR = ROOT_DIR / "requirements"
+PACKAGE_DIR = ROOT_DIR / "bikeshare_model"
 with open(PACKAGE_DIR / "VERSION") as f:
     _version = f.read().strip()
     about["__version__"] = _version
@@ -35,6 +35,7 @@ with open(PACKAGE_DIR / "VERSION") as f:
 def list_reqs(fname="requirements.txt"):
     with open(REQUIREMENTS_DIR / fname) as fd:
         return fd.read().splitlines()
+
 
 # Where the magic happens:
 setup(
