@@ -26,9 +26,10 @@ jobs:
 
     - name: Linting and Formatting
       run: |
-       make format
-       make lint
-       make mypy
+        cd Application_Copy
+        make format
+        make lint
+        make mypy
 
     - name: Model Training
       run: |
