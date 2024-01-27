@@ -21,20 +21,24 @@ jobs:
 
     - name: Install dependencies
       run: |
+        cd /Application_Copy
         make install
 
     - name: Linting and Formatting
       run: |
-       make format
-       make lint
-       make mypy
+        cd /Application_Copy
+        make format
+        make lint
+        make mypy
 
     - name: Model Training
       run: |
+        cd /Application_Copy
         make train_pipeline
 
     - name: Model Testing
       run: |
+       cd /Application_Copy
        make test
 
     - name: Save trained model artifact
