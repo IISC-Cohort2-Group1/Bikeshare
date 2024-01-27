@@ -1,0 +1,48 @@
+name: Model Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: |
+        cd Application_Copy
+        make install
+
+    - name: Linting and Formatting
+      run: |
+       cd Application_Copy
+       make format
+       make lint
+       make mypy
+
+    - name: Model Training
+      run: |
+        cd Application_Copy
+        make train_pipeline
+
+    - name: Model Testing
+      run: |
+       cd Application_Copy
+       make test
+
+    - name: Save trained model artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: trained-model
+        path: ./bikeshare_model/trained_models/*.pkl
