@@ -10,9 +10,6 @@ format:
 lint:
 	pylint --disable=R,C *.py
 
-mypy:
-	mypy --implicit-optional bikeshare_model/ tests/
-
 test:
 	python -m pytest tests/test_*.py
 
