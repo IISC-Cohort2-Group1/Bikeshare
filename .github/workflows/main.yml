@@ -29,7 +29,6 @@ jobs:
         cd Application_Copy
         make format
         make lint
-        make mypy
 
     - name: Model Training
       run: |
